@@ -14,23 +14,23 @@ public class CardController {
     @Autowired
     CardService service;
 
-    @GetMapping(value = {"/{ownerId}","/{ownerId}/"})
+    @GetMapping(value = { "/{ownerId}", "/{ownerId}/" })
     public Iterable<Card> getCards(@PathVariable Long ownerId) {
         return service.getCardsByDni(ownerId);
     }
 
-    @GetMapping(value = {"/all","/all/"})
+    @GetMapping(value = { "/all", "/all/" })
     public Iterable<Card> getCards() {
         return service.getAllCards();
     }
 
-    @PostMapping(value = {"/save","/save/"})
+    @PostMapping(value = { "/save", "/save/" })
     public OutMessage postCard(@RequestBody Card card) {
         return service.postCard(card);
     }
 
-    @DeleteMapping(value = {"/delete","/delete/"})
-    public OutMessage deleteCard(@RequestParam Long ownerId, @RequestParam Long CBU) {
-       return service.deleteCard(ownerId, CBU);
+    @DeleteMapping(value = { "/delete/{ownerId}/{CBU}", "/delete/{ownerId}/{CBU}/" })
+    public OutMessage deleteCard(@PathVariable Long ownerId, @PathVariable Long CBU) {
+        return service.deleteCard(ownerId, CBU);
     }
 }

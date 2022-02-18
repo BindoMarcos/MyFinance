@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 public interface ICardRepo extends MongoRepository<Card, Long> {
 
     public Iterable<Card> findByOwnerId(Long ownerId);
+
     public Boolean existsByCBU(Long CBU);
+
     public Boolean existsByAlias(String alias);
 }

@@ -26,15 +26,15 @@ public class CardService {
         long id = MathUtil.getRandomId();
 
         if (cardRepo.existsByCBU(card.getCBU())) {
-            return new OutMessage("Error", "CBU ya ingresado!");
+            return new OutMessage("Error", "Existing CBU!");
         } else if (cardRepo.existsByAlias(card.getAlias())) {
-            return new OutMessage("Error", "Alias ya existente!");
+            return new OutMessage("Error", "Existing Alias!");
         } else {
             while (cardRepo.exists(Long.valueOf(id))) {
                 id = MathUtil.getRandomId();
             }
             card.setCardId(id);
-            return new OutMessage( "Creado correctamente!", cardRepo.saveCard(card));
+            return new OutMessage("Created Successfuly!", cardRepo.saveCard(card));
         }
     }
 
@@ -52,8 +52,8 @@ public class CardService {
         }
         if (valid) {
             cardRepo.deleteById(foundId);
-            return new OutMessage("Ok", "Card borrada!");
+            return new OutMessage("Ok", "Card erased!");
         } else
-            return new OutMessage("Error", "Este CBU no existe o no le pertenece!");
+            return new OutMessage("Error", "The CBU doesn't exist o doesn't belong to you!");
     }
 }

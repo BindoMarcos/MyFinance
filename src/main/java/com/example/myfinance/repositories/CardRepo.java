@@ -22,19 +22,19 @@ public class CardRepo {
         return icardRepo.findAll();
     }
 
-    public Boolean exists(Long cardId){
+    public Boolean exists(Long cardId) {
         return icardRepo.existsById(cardId);
     }
 
-    public Boolean existsByCBU(Long CBU){
+    public Boolean existsByCBU(Long CBU) {
         return icardRepo.existsByCBU(CBU);
     }
 
-    public Boolean existsByAlias(String alias){
+    public Boolean existsByAlias(String alias) {
         return icardRepo.existsByAlias(alias);
     }
 
-    public void deleteById(Long ownerId){
+    public void deleteById(Long ownerId) {
         icardRepo.deleteById(ownerId);
     }
 
