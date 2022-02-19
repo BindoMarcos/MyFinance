@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CardRepo {
+
     @Autowired
     private ICardRepo icardRepo;
-
+    
     public Card saveCard(Card card) {
         return icardRepo.save(card);
     }

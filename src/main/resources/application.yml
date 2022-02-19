@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://marcos:admin@ec2-52-201-244-179.compute-1.amazonaws.com/MyFinance
